@@ -1,0 +1,41 @@
+<configuration scan="true" scanPeriod=" 5 seconds">
+	<jmxConfigurator />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{56}[%L] - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="appender" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<Key>fileName</Key>
+			<DefaultValue>common</DefaultValue>
+		</discriminator>
+		<sift>
+			<appender name="FILE-${fileName}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<File>/export/Logs/big-project/${fileName}.log</File>
+				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+					<!-- rollover daily -->
+					<fileNamePattern>/export/Logs/big-project/oldLog/%d{yyyy-MM-dd}/${fileName}-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+					<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+						<!-- or whenever the file size reaches 100MB -->
+						<maxFileSize>512MB</maxFileSize>
+					</timeBasedFileNamingAndTriggeringPolicy>
+					<maxHistory>60</maxHistory>
+				</rollingPolicy>
+				<encoder>
+					<pattern>
+						%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{56}[%L] - %msg%n
+					</pattern>
+				</encoder>
+			</appender>
+		</sift>
+	</appender>
+
+	<root level="ERROR">
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="appender" />
+	</root>
+</configuration>
