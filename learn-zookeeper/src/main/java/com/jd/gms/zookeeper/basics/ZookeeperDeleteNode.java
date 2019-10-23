@@ -1,4 +1,4 @@
-package com.jd.gms.zookeeper;
+package com.jd.gms.zookeeper.basics;
 
 /**
  * @Author: jiangjiabin3
