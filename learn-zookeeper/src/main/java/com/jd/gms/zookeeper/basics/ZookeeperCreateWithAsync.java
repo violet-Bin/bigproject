@@ -1,4 +1,4 @@
-package com.jd.gms.zookeeper;
+package com.jd.gms.zookeeper.basics;
 
 import org.apache.zookeeper.AsyncCallback;
 import org.apache.zookeeper.CreateMode;
@@ -7,10 +7,8 @@ import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 /**
