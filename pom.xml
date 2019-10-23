@@ -28,7 +28,7 @@
         <junit.version>4.12</junit.version>
 
         <!-- zookeeper -->
-        <zookeeper.version>3.4.5</zookeeper.version>
+        <zookeeper.version>3.5.5</zookeeper.version>
         <zkclient.version>0.1</zkclient.version>
         <curator.version>2.4.2</curator.version>
     </properties>
