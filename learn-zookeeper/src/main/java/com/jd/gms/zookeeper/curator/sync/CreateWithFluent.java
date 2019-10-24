@@ -1,4 +1,4 @@
-package com.jd.gms.zookeeper.curator;
+package com.jd.gms.zookeeper.curator.sync;
 
 import com.sun.javafx.image.IntPixelGetter;
 import org.apache.curator.RetryPolicy;

@@ -1,4 +1,4 @@
-package com.jd.gms.zookeeper.curator;
+package com.jd.gms.zookeeper.curator.sync;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;

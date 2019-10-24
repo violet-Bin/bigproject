@@ -1,4 +1,4 @@
-package com.jd.gms.zookeeper.curator;
+package com.jd.gms.zookeeper.curator.sync;
 
 import org.apache.curator.CuratorZookeeperClient;
 import org.apache.curator.RetryPolicy;

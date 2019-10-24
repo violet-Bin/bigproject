@@ -1,4 +1,4 @@
-package com.jd.gms.zookeeper.curator;
+package com.jd.gms.zookeeper.curator.sync;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
@@ -8,12 +8,12 @@ import org.apache.zookeeper.data.Stat;
 
 /**
  * @Author: jiangjiabin3
- * @Date: Created in 2019/10/23 21:55
- * @Description: 使用curator读取数据
+ * @Date: Created in 2019/10/23 21:43
+ * @Description: 使用curator删除节点
  */
-public class GetDataWithCurator {
+public class DeleteNodeWithCurator {
 
-    static String path = "/zk-book4";
+    static String path = "/zk-book3/c1";
     static CuratorFramework client = CuratorFrameworkFactory.builder()
             .connectString("localhost:2181")
             .sessionTimeoutMs(5000)
@@ -27,6 +27,13 @@ public class GetDataWithCurator {
                 .withMode(CreateMode.EPHEMERAL)
                 .forPath(path, "init".getBytes());
         Stat stat = new Stat();
-        System.out.println(new String(client.getData().storingStatIn(stat).forPath(path)));
+        byte[] bytes = client.getData().storingStatIn(stat).forPath(path);
+        System.out.println(new String(bytes));
+        client.delete().deletingChildrenIfNeeded()
+                .withVersion(stat.getVersion()).forPath(path);
+        System.out.println("ok");
+
+
     }
+
 }
