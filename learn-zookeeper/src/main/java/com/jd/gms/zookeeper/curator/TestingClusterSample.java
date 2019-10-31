@@ -14,6 +14,7 @@ public class TestingClusterSample {
         //模拟三台
         TestingCluster cluster = new TestingCluster(3);
         cluster.start();
+        System.out.println("----------");
         Thread.sleep(2000);
 
         TestingZooKeeperServer leader = null;
