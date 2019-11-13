@@ -1,0 +1,8 @@
+<route>
+    <from uri="zookeeper://localhost:2181/zk_book111"/>
+    <!-- Pipeline is default, it can be omitted -->
+    <pipeline>
+        <bean ref="printService" cache = >
+        </bean>
+    </pipeline>
+</route>
