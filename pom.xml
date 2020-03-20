@@ -14,10 +14,11 @@
         <module>jsf-consumer</module>
         <module>web</module>
         <module>rpc-interface</module>
-        <module>learn-zookeeper</module>
+        <module>zookeeper</module>
         <module>canal-server</module>
         <module>canal-client</module>
         <module>camel-component</module>
+        <module>mongo</module>
     </modules>
 
     <!-- vision -->
@@ -38,6 +39,11 @@
         <fastjson.version>1.2.62</fastjson.version>
         <commons.version>3.2.1</commons.version>
         <camel.version>2.24.2</camel.version>
+
+        <!-- mongo -->
+        <mongo.version>3.0.2</mongo.version>
+        <spring.data.mongodb.version>1.7.0.RELEASE</spring.data.mongodb.version>
+        <!--        <mongo.version>3.4.2</mongo.version>-->
     </properties>
 
     <dependencyManagement>
@@ -180,6 +186,30 @@
                 <version>${camel.version}</version>
             </dependency>
             <!-- end -->
+
+            <!-- mongo start -->
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>mongo-java-driver</artifactId>
+                <version>${mongo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-mongodb</artifactId>
+                <version>${spring.data.mongodb.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mongodb</groupId>
+                        <artifactId>mongo-java-driver</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-expression</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- mongo end -->
+
 
         </dependencies>
     </dependencyManagement>
