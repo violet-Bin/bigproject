@@ -24,7 +24,7 @@
         <!--        <jmq.version>2.2.0</jmq.version>-->
         <jsf.vision>1.6.9</jsf.vision>
         <slf4j.version>1.7.25</slf4j.version>
-        <spring.framework.version>5.2.0.RELEASE</spring.framework.version>
+        <spring.framework.version>5.3.18</spring.framework.version>
         <junit.version>4.12</junit.version>
 
         <!-- zookeeper -->
